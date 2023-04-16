@@ -1,0 +1,24 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: kube-news-service
+spec:
+  selector:
+    app: kube-news
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080
+  type: LoadBalancer
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: postgres-service
+spec:
+  selector:
+    app: postgres
+  ports:
+    - protocol: TCP
+      port: 5432
+      targetPort: 5432
